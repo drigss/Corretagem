@@ -107,8 +107,13 @@ export class SidemenuComponent implements OnInit {
         open: false,
         sub: [
           {
+<<<<<<< HEAD
             name: 'Gráficos',
             link: '/grafico',
+=======
+            name: 'Teste',
+            link: '/pg-teste',
+>>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
             icon: 'account_balance',
             chip: false
           }
