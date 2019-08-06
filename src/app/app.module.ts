@@ -9,6 +9,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
+import { ChartsModule } from  'ng2-charts';
+
 
 @NgModule({
   declarations: [AppComponent, NumberOnlyDirective],
@@ -19,7 +21,8 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

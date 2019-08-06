@@ -21,7 +21,7 @@ export class SidemenuComponent implements OnInit {
         open: false
       },
       {
-        name: 'Lançamentos',
+        name: 'Operações',
         icon: 'widgets',
         link: false,
         open: false,
@@ -30,6 +30,52 @@ export class SidemenuComponent implements OnInit {
             name: 'Notas de Corretagem',
             link: '/notas',
             icon: 'money',
+            chip: false
+          },
+          {
+            name: 'Importar Notas',
+            link: false,
+            icon: false,
+            chip: false
+          },
+          {
+            name: 'Proventos (Dividendos / Juros)',
+            link: false,
+            icon: false,
+            chip: false
+          },
+          {
+            name: 'Desdobramentos',
+            link: false,
+            icon: false,
+            chip: false
+          },
+        ]
+      },
+      {
+        name: 'Depositos e Retiradas',
+        icon: 'widgets',
+        link: false,
+        open: false,
+        sub: [
+          {
+            name: 'Cadastrar Movimentação',
+            link: '/notas', // alterar
+            icon: 'money',
+            chip: false
+          }
+        ]
+      },
+      {
+        name: 'Imposto de Renda',
+        icon: 'widgets',
+        link: false,
+        open: false,
+        sub: [
+          {
+            name: 'Gerar DARF',
+            link: false,
+            icon: false,
             chip: false
           }
         ]
@@ -50,6 +96,20 @@ export class SidemenuComponent implements OnInit {
             name: 'Usuários',
             link: '/usuarios',
             icon: 'accessibility',
+            chip: false
+          }
+        ]
+      },
+      {
+        name: 'Menu Teste',
+        icon: 'settings_applications',
+        link: false,
+        open: false,
+        sub: [
+          {
+            name: 'Gráficos',
+            link: '/grafico',
+            icon: 'account_balance',
             chip: false
           }
         ]
