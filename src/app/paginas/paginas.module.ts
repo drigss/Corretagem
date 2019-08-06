@@ -1,6 +1,5 @@
 import { NgModule, LOCALE_ID, enableProdMode } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChartsModule } from 'ng2-charts';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -59,12 +58,6 @@ import { UsuariosComponent } from '../paginas/usuarios/usuarios.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { CorretorasComponent } from './corretoras/corretoras.component';
 import { NotasComponent } from './notas/notas.component';
-<<<<<<< HEAD
-import { GraficoComponent } from './grafico/grafico.component';
-
-=======
-import { PgTesteComponent } from './pg-teste/pg-teste.component';
->>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -123,8 +116,7 @@ export const MY_FORMATS = {
     ReactiveFormsModule,
     MatTableExporterModule,
     HttpClientModule,
-    NgxMaskModule.forRoot(),
-    ChartsModule
+    NgxMaskModule.forRoot()
   ],
   declarations: [
     LineGraphComponent,
@@ -134,12 +126,7 @@ export const MY_FORMATS = {
     UsuariosComponent,
     PaginaNaoEncontradaComponent,
     CorretorasComponent,
-    NotasComponent,
-<<<<<<< HEAD
-    GraficoComponent
-=======
-    PgTesteComponent
->>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
+    NotasComponent
   ],
   exports: [LineGraphComponent, RoundProgressbarComponent],
   providers: [

@@ -21,7 +21,7 @@ export class SidemenuComponent implements OnInit {
         open: false
       },
       {
-        name: 'Operações',
+        name: 'Lançamentos',
         icon: 'widgets',
         link: false,
         open: false,
@@ -30,52 +30,6 @@ export class SidemenuComponent implements OnInit {
             name: 'Notas de Corretagem',
             link: '/notas',
             icon: 'money',
-            chip: false
-          },
-          {
-            name: 'Importar Notas',
-            link: false,
-            icon: false,
-            chip: false
-          },
-          {
-            name: 'Proventos (Dividendos / Juros)',
-            link: false,
-            icon: false,
-            chip: false
-          },
-          {
-            name: 'Desdobramentos',
-            link: false,
-            icon: false,
-            chip: false
-          },
-        ]
-      },
-      {
-        name: 'Depositos e Retiradas',
-        icon: 'widgets',
-        link: false,
-        open: false,
-        sub: [
-          {
-            name: 'Cadastrar Movimentação',
-            link: '/notas', // alterar
-            icon: 'money',
-            chip: false
-          }
-        ]
-      },
-      {
-        name: 'Imposto de Renda',
-        icon: 'widgets',
-        link: false,
-        open: false,
-        sub: [
-          {
-            name: 'Gerar DARF',
-            link: false,
-            icon: false,
             chip: false
           }
         ]
@@ -96,25 +50,6 @@ export class SidemenuComponent implements OnInit {
             name: 'Usuários',
             link: '/usuarios',
             icon: 'accessibility',
-            chip: false
-          }
-        ]
-      },
-      {
-        name: 'Menu Teste',
-        icon: 'settings_applications',
-        link: false,
-        open: false,
-        sub: [
-          {
-<<<<<<< HEAD
-            name: 'Gráficos',
-            link: '/grafico',
-=======
-            name: 'Teste',
-            link: '/pg-teste',
->>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
-            icon: 'account_balance',
             chip: false
           }
         ]

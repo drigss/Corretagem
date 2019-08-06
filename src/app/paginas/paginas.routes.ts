@@ -7,12 +7,6 @@ import { PrincipalComponent } from '../paginas/principal/principal.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { CorretorasComponent } from './corretoras/corretoras.component';
 import { NotasComponent } from './notas/notas.component';
-<<<<<<< HEAD
-import { GraficoComponent } from './grafico/grafico.component';
-
-=======
-import { PgTesteComponent } from './pg-teste/pg-teste.component';
->>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
 
 export const paginasRoutes: Routes = [
   {
@@ -23,13 +17,7 @@ export const paginasRoutes: Routes = [
       { path: 'principal', component: PrincipalComponent, data: { animation: 'principal' } },
       { path: 'corretoras', component: CorretorasComponent, data: { animation: 'corretoras' } },
       { path: 'notas', component: NotasComponent, data: { animation: 'notas' } },
-      { path: 'usuarios', component: UsuariosComponent, data: { animation: 'usuarios' } },
-<<<<<<< HEAD
-      { path: 'grafico', component: GraficoComponent, data: { animation: 'usuarios' } }
-
-=======
-      { path: 'pg-teste', component: PgTesteComponent, data: { animation: 'pg-teste' } }
->>>>>>> cfbfd0e94b0c2b765ce4d7634ba91cf676bd323c
+      { path: 'usuarios', component: UsuariosComponent, data: { animation: 'usuarios' } }
       // { path: '404', component: PaginaNaoEncontradaComponent },
       // { path: '**', redirectTo: '/404' }
     ]
