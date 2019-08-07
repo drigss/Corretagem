@@ -21,17 +21,63 @@ export class SidemenuComponent implements OnInit {
         open: false
       },
       {
-        name: 'Lançamentos',
+        name: 'Operações',
         icon: 'widgets',
         link: false,
         open: false,
         sub: [
           {
-            name: 'Notas de Corretagem',
+            name: 'Notas de Corretagens',
             link: '/notas',
-            icon: 'money',
+            icon: false,
+            chip: false
+          },
+          {
+            name: 'Importar Notas',
+            link: false,
+            icon: false,
+            chip: false
+          },
+          {
+            name: 'Proventos (Dividendos / Juros)',
+            link: false,
+            icon: false,
+            chip: false
+          },
+          {
+            name: 'Desdobramentos',
+            link: false,
+            icon: false,
             chip: false
           }
+        ]
+      },
+      {
+        name: 'Depósitos e Retiradas',
+        icon: 'widgets',
+        link: false,
+        open: false,
+        sub: [
+          {
+            name: 'Cadastrar Movimentação',
+            link: false,
+            icon: false,
+            chip: false
+          },
+        ]
+      },
+      {
+        name: 'Imposto de Renda',
+        icon: 'widgets',
+        link: false,
+        open: false,
+        sub: [
+          {
+            name: 'Gerar DARF',
+            link: false,
+            icon: false,
+            chip: false
+          },
         ]
       },
       {
