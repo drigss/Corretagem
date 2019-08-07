@@ -68,7 +68,7 @@ export class NotasComponent implements OnInit {
 
   Operacoes(item): void {
     const dialogRef = this.dialog.open(OperacoesNotaComponent, {
-      width: '800px',
+      width: '900px',
       hasBackdrop: true,
       disableClose: true,
       data: item
@@ -113,10 +113,12 @@ export class NotasComponent implements OnInit {
           confirmButtonText: 'Sim',
           cancelButtonText: 'Não'
         })
-        .then(result => {
+        .then(result => { // Deletar notas
           if (result.value) {
             this.selection.selected.forEach(item => {
               this.firestore.doc(`notas/` + item).delete();
+
+              this.firestore.doc(`notas_operacoes/` + item).delete(); // inserido isso
             });
             this.Carregar(null);
           }

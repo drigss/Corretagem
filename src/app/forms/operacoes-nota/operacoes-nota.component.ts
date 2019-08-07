@@ -21,7 +21,7 @@ export class OperacoesNotaComponent implements OnInit {
 
   public operacoes: Array<Object> = [{ id: 'C', descricao: 'Compra' }, { id: 'V', descricao: 'Venda' }];
   public papeis: Array<Object> = [{ id: 1, descricao: 'Ação' }, { id: 2, descricao: 'ETF' }];
-  public displayedColumns = ['operacao', 'ticker', 'papel', 'quantidade', 'preco_unitario', 'preco_total', 'liquido', 'operacoes'];
+  public displayedColumns = ['operacao', 'ticker', 'papel', 'quantidade', 'preco_unitario', 'preco_total', 'liquido', 'registro', 'emolumento', 'ir', 'operacoes'];
   public dataSource = [];
 
   constructor(
@@ -101,9 +101,33 @@ export class OperacoesNotaComponent implements OnInit {
               const liq = ((this.dados.liquidacao / auxTotal) * obj.preco_total).toFixed(4);
               this.firestore.doc(`notas_operacoes/${obj.id}`).update({ liquido: liq });
             });
+
+            //Registro, emolumento, ir
+            data.forEach(obj => {
+              const reg = ((this.dados.registro / auxTotal) * obj.preco_total).toFixed(4);
+              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ registro: reg });
+            });
+
+            data.forEach(obj => {
+              const emol = ((this.dados.emolumento / auxTotal) * obj.preco_total).toFixed(4);
+              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ emolumento: emol });
+            });
+
+            data.forEach(obj => {
+              const irrf = ((this.dados.ir / auxTotal) * obj.preco_total).toFixed(4);
+              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ ir: irrf });
+            });
+
           } else {
             this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ liquido: this.dados.liquidacao });
+            //teste
+            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ registro: this.dados.registro });
+            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ emolumento: this.dados.emolumento });
+            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ ir: this.dados.ir });
           }
+
+
+          
           this.dataSource = data;
         } else {
           this.dataSource = [];

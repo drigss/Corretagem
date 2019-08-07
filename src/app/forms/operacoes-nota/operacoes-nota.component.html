@@ -109,6 +109,24 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{ row.liquido }} </mat-cell>
       </ng-container>
+      <ng-container matColumnDef="registro">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Reg.
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.registro }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="emolumento">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Emol.
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.emolumento }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ir">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          IR.
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.ir }} </mat-cell>
+      </ng-container>
       <ng-container matColumnDef="operacoes">
         <mat-header-cell *matHeaderCellDef>Operações</mat-header-cell>
         <mat-cell *matCellDef="let row">
