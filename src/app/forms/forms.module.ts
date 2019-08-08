@@ -45,6 +45,7 @@ import { CadastroCorretoraComponent } from './cadastro-corretora/cadastro-corret
 import { CadastroNotaComponent } from './cadastro-nota/cadastro-nota.component';
 import { OperacoesNotaComponent } from './operacoes-nota/operacoes-nota.component';
 import { CadastroMovimentacaoComponent } from './cadastro-movimentacao/cadastro-movimentacao.component';
+import { CadastroProventosComponent } from './cadastro-proventos/cadastro-proventos.component';
 
 @NgModule({
   imports: [
@@ -93,7 +94,8 @@ import { CadastroMovimentacaoComponent } from './cadastro-movimentacao/cadastro-
     CadastroCorretoraComponent,
     CadastroNotaComponent,
     OperacoesNotaComponent,
-    CadastroMovimentacaoComponent
+    CadastroMovimentacaoComponent,
+    CadastroProventosComponent
   ],
   exports: [ErrorMsgComponent],
   providers: [UsuarioLogado],
@@ -103,7 +105,8 @@ import { CadastroMovimentacaoComponent } from './cadastro-movimentacao/cadastro-
     CadastroCorretoraComponent,
     CadastroNotaComponent,
     OperacoesNotaComponent,
-    CadastroMovimentacaoComponent
+    CadastroMovimentacaoComponent,
+    CadastroProventosComponent
   ]
 })
 export class FormulariosModule {}

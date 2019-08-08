@@ -1,4 +1,3 @@
-import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
@@ -8,6 +7,8 @@ import { PrincipalComponent } from '../paginas/principal/principal.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { CorretorasComponent } from './corretoras/corretoras.component';
 import { NotasComponent } from './notas/notas.component';
+import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
+import { ProventosComponent } from './proventos/proventos.component';
 
 export const paginasRoutes: Routes = [
   {
@@ -20,7 +21,9 @@ export const paginasRoutes: Routes = [
       { path: 'corretoras', component: CorretorasComponent, data: { animation: 'corretoras' } },
       { path: 'notas', component: NotasComponent, data: { animation: 'notas' } },
       { path: 'usuarios', component: UsuariosComponent, data: { animation: 'usuarios' } },
-      { path: 'movimentacao', component: MovimentacaoComponent, data: { animation: 'movimentacao' } }
+      { path: 'movimentacao', component: MovimentacaoComponent, data: { animation: 'movimentacao' } },
+      { path: 'proventos', component: ProventosComponent, data: { animation: 'proventos' } }
+      
       // { path: '404', component: PaginaNaoEncontradaComponent },
       // { path: '**', redirectTo: '/404' }
     ]

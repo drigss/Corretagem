@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Novo Registro/Editar</h1>
+<form [formGroup]="Form" (ngSubmit)="Salvar()">
+  <div mat-dialog-content>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+      <div fxFlex="50">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Corretora" formControlName="nome" [(ngModel)]="dados2.nome" />
+          <mat-error>
+            <app-error-msg [control]="Form.get('nome')" label="Corretora"></app-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50">
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="CNPJ"
+            formControlName="cnpj"
+            [(ngModel)]="dados2.cnpj"
+            mask="00.000.000/0000-00"
+            [dropSpecialCharacters]="false"
+          />
+          <mat-error>
+            <app-error-msg [control]="Form.get('cnpj')" label="CNPJ"></app-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+      <div fxFlex="33">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo" formControlName="tipo" [(ngModel)]="dados2.tipo" />
+          <mat-error>
+            <app-error-msg [control]="Form.get('tipo')" label="Tipo"></app-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="33">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Papel" formControlName="papel" [(ngModel)]="dados2.papel" />
+          <mat-error>
+            <app-error-msg [control]="Form.get('papel')" label="Papel"></app-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="33">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Valor" formControlName="valor" [(ngModel)]="dados2.valor" />
+          <mat-error>
+            <app-error-msg [control]="Form.get('valor')" label="Valor"></app-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button type="submit" mat-raised-button color="primary">Confirmar</button>
+    <button mat-button mat-raised-button color="basic" [mat-dialog-close]="true">Fechar</button>
+  </div>
+</form>

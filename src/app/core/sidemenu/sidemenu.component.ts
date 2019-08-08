@@ -40,7 +40,7 @@ export class SidemenuComponent implements OnInit {
           },
           {
             name: 'Proventos (Dividendos / Juros)',
-            link: false,
+            link: '/proventos',
             icon: false,
             chip: false
           },

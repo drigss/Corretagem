@@ -59,6 +59,7 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
 import { CorretorasComponent } from './corretoras/corretoras.component';
 import { NotasComponent } from './notas/notas.component';
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
+import { ProventosComponent } from './proventos/proventos.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -128,7 +129,8 @@ export const MY_FORMATS = {
     PaginaNaoEncontradaComponent,
     CorretorasComponent,
     NotasComponent,
-    MovimentacaoComponent
+    MovimentacaoComponent,
+    ProventosComponent
   ],
   exports: [LineGraphComponent, RoundProgressbarComponent],
   providers: [
