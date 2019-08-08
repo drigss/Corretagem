@@ -1,3 +1,4 @@
+import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
@@ -12,12 +13,14 @@ export const paginasRoutes: Routes = [
   {
     path: '',
     component: InicialComponent,
-    //canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+    // Ao criar uma página declarar a rota de acesso
     children: [
       { path: 'principal', component: PrincipalComponent, data: { animation: 'principal' } },
       { path: 'corretoras', component: CorretorasComponent, data: { animation: 'corretoras' } },
       { path: 'notas', component: NotasComponent, data: { animation: 'notas' } },
-      { path: 'usuarios', component: UsuariosComponent, data: { animation: 'usuarios' } }
+      { path: 'usuarios', component: UsuariosComponent, data: { animation: 'usuarios' } },
+      { path: 'movimentacao', component: MovimentacaoComponent, data: { animation: 'movimentacao' } }
       // { path: '404', component: PaginaNaoEncontradaComponent },
       // { path: '**', redirectTo: '/404' }
     ]

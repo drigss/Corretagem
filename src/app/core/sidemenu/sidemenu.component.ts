@@ -60,7 +60,7 @@ export class SidemenuComponent implements OnInit {
         sub: [
           {
             name: 'Cadastrar Movimentação',
-            link: false,
+            link: '/movimentacao',
             icon: false,
             chip: false
           },
