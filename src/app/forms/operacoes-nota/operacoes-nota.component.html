@@ -46,14 +46,9 @@
       </div>
       <div fxFlex="33">
         <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Preço Unitário"
-            formControlName="preco_unitario"
-            [(ngModel)]="dados2.preco_unitario"
-            currencyMask
-            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
-          />
+          <input matInput placeholder="Preço Unitário" formControlName="preco_unitario"
+            [(ngModel)]="dados2.preco_unitario" currencyMask
+            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
           <mat-error>
             <app-error-msg [control]="Form.get('preco_unitario')" label="Preço Unitário"></app-error-msg>
           </mat-error>

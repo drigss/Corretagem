@@ -4,4 +4,5 @@ export interface Proventos {
   corretora_ref: string;
   data_provento: string;
   operacao: string;
+  tipo: string;
 }

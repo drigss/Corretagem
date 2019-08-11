@@ -21,6 +21,7 @@ export class CadastroProventosComponent implements OnInit {
   dados2: any = {};
   proventos: any = [];
 
+  public tipos: Array<Object> = [{ id: 'Dividendos', descricao: 'Dividendos' }, { id: 'Juros', descricao: 'Juros' }];
 
   constructor(
     private firestore: AngularFirestore,

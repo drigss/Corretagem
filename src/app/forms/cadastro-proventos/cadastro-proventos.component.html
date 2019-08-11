@@ -32,7 +32,11 @@
     <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
       <div fxFlex="33">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Tipo" formControlName="tipo" [(ngModel)]="dados2.tipo" />
+          <mat-select placeholder="Tipo" formControlName="tipo" [(ngModel)]="dados2.tipo">
+            <mat-option *ngFor="let tipo of tipos" [value]="tipo.id">
+              {{ tipo.descricao }}
+            </mat-option>
+          </mat-select>
           <mat-error>
             <app-error-msg [control]="Form.get('tipo')" label="Tipo"></app-error-msg>
           </mat-error>
