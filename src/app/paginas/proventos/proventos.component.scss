@@ -1,18 +1,18 @@
 .table-header {
-    background-color: #616161;
+    background-color: #1205c7;
     color: white;
     padding: 0 5px;
   }
-  
+
   .table-container {
     padding: 5px 15px 15px 15px;
   }
-  
+
   .table-component-holder {
-    border: 1px solid #616161;
+    // border: 1px solid #8f8f8f;
     background-color: white;
   }
-  
+
   .no-results {
     margin-top: 50px;
     text-align: center;
@@ -20,24 +20,24 @@
     font-size: 12pt;
     font-family: 'Roboto', sans-serif;
   }
-  
+
   .mat-column-select {
     flex: 0 0 60px !important;
   }
-  
+
   .example-element-row:hover {
     background: #f5f5f5;
     cursor: pointer;
   }
-  
+
   .example-element-row:active {
     background: #efefef;
   }
-  
+
   #div_barra .mat-raised-button {
     margin-left: 15px;
   }
-  
+
   .page-loader-wrapper {
     z-index: 99999999;
     position: fixed;
@@ -55,6 +55,5 @@
     top: calc(50% - 30px);
   }
   ::ng-deep .mat-spinner circle {
-    stroke: #616161 !important;
+    stroke: #aaaaaa !important;
   }
-  

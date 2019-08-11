@@ -14,7 +14,7 @@ import { CadastroProventosComponent } from 'src/app/forms/cadastro-proventos/cad
 })
 export class ProventosComponent implements OnInit {
 
-  public displayedColumns = ['select', 'nome', 'cnpj', 'tipo', 'papel', 'valor'];
+  public displayedColumns = ['select', 'nome', 'data', 'tipo', 'papel', 'valor'];
   public dataSource = [];
   selection = new SelectionModel<string>(true, []);
   dataLength: number;

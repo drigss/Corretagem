@@ -10,18 +10,21 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div fxFlex="50">
+      <div fxFlex="33">
         <mat-form-field class="full-width">
           <input
             matInput
-            placeholder="CNPJ"
-            formControlName="cnpj"
-            [(ngModel)]="dados2.cnpj"
-            mask="00.000.000/0000-00"
-            [dropSpecialCharacters]="false"
+            formControlName="data_provento"
+            [(ngModel)]="dados2.data"
+            [matDatepicker]="dp_data_provento"
+            placeholder="Data"
+            required
+            appMaskDate
           />
+          <mat-datepicker-toggle matSuffix [for]="dp_data_provento" disabled></mat-datepicker-toggle>
+          <mat-datepicker #dp_data_provento></mat-datepicker>
           <mat-error>
-            <app-error-msg [control]="Form.get('cnpj')" label="CNPJ"></app-error-msg>
+            <app-error-msg [control]="Form.get('data_provento')" label="Data"></app-error-msg>
           </mat-error>
         </mat-form-field>
       </div>
@@ -45,7 +48,14 @@
       </div>
       <div fxFlex="33">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Valor" formControlName="valor" [(ngModel)]="dados2.valor" />
+          <input
+            matInput
+            placeholder="Valor"
+            formControlName="valor"
+            [(ngModel)]="dados2.valor"
+            currencyMask
+            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+          />
           <mat-error>
             <app-error-msg [control]="Form.get('valor')" label="Valor"></app-error-msg>
           </mat-error>

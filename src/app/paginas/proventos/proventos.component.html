@@ -43,11 +43,11 @@
           </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{ row.nome }} </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="cnpj">
+        <ng-container matColumnDef="data">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
-            CNPJ
+            Data
           </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{ row.cnpj }} </mat-cell>
+          <mat-cell *matCellDef="let row"> {{ row.data_provento.seconds * 1000 | date: 'dd/MM/yyyy' }} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="tipo">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
