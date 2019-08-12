@@ -4,6 +4,7 @@ export interface Notas {
   data_nota: string;
   total_compras: number;
   total_vendas: number;
+  total_liquido: number;
   liquidacao: number;
   registro: number;
   emolumento: number;

@@ -117,9 +117,16 @@
         </mat-form-field>
       </div>
       <div fxFlex="33">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="IR" formControlName="ir" [(ngModel)]="dados2.ir" myNumberOnly />
-          <mat-error>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="IRRF"
+              formControlName="ir"
+              [(ngModel)]="dados2.ir"
+              currencyMask
+              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+            />
+            <mat-error>
             <app-error-msg [control]="Form.get('ir')" label="IR"></app-error-msg>
           </mat-error>
         </mat-form-field>

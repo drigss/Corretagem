@@ -127,7 +127,7 @@ export class OperacoesNotaComponent implements OnInit {
           }
 
 
-          
+
           this.dataSource = data;
         } else {
           this.dataSource = [];

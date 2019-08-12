@@ -16,24 +16,28 @@
         </button>
       </div>
     </mat-toolbar>
+    <div>
+      <mat-card>Simple card
+        <ul>
+          <li *ngFor="let provento of proventos$ | async">{{ provento.valor }}
+            {{a}}
+          </li>
+        </ul>
+        <!-- <li *ngFor="let task of tasks$ | async">{{ task.uid }}</li>   -->
+      </mat-card>
+    </div>
     <div class="table-container">
       <mat-table #table [dataSource]="dataSource">
         <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
           <mat-header-cell *matHeaderCellDef>
-            <mat-checkbox
-              (change)="$event ? masterToggle() : null"
-              [checked]="isAllSelected()"
-              [indeterminate]="selection.hasValue() && !isAllSelected()"
-            >
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
             </mat-checkbox>
           </mat-header-cell>
           <mat-cell *matCellDef="let row">
-            <mat-checkbox
-              (click)="$event.stopPropagation()"
-              (change)="$event ? selection.toggle(row.id) : null"
-              [checked]="selection.isSelected(row.id)"
-            >
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.id) : null"
+              [checked]="selection.isSelected(row.id)">
             </mat-checkbox>
           </mat-cell>
         </ng-container>
@@ -68,24 +72,15 @@
           <mat-cell *matCellDef="let row"> {{ row.valor }} </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row
-          *matRowDef="let row; columns: displayedColumns"
-          [class.example-selected-row]="selection.isSelected(row.id)"
-          (click)="EditarRegistro(row)"
-          class="example-element-row"
-        ></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"
+          [class.example-selected-row]="selection.isSelected(row.id)" (click)="EditarRegistro(row)"
+          class="example-element-row"></mat-row>
       </mat-table>
       <div class="no-results" [style.display]="dataSource?.length == 0 ? '' : 'none'">
         Nenhuma corretora foi encontrado!
       </div>
-      <mat-paginator
-        [length]="dataLength"
-        [pageIndex]="0"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        [showFirstLastButtons]="true"
-        (page)="onPaginateChange($event)"
-      >
+      <mat-paginator [length]="dataLength" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
+        [showFirstLastButtons]="true" (page)="onPaginateChange($event)">
       </mat-paginator>
     </div>
   </div>

@@ -1,5 +1,9 @@
+h1{
+  margin-left: 15px;
+}
+
 .table-header {
-  background-color: #616161;
+  background-color: #3700b3;
   color: white;
   padding: 0 5px;
 }
@@ -9,7 +13,7 @@
 }
 
 .table-component-holder {
-  border: 1px solid #616161;
+ // border: 1px solid #616161;
   background-color: white;
 }
 
@@ -32,6 +36,14 @@
 
 .example-element-row:active {
   background: #efefef;
+}
+
+.mat-column-select {
+  flex: 0 0 40px !important;
+}
+
+.mat-column-operacoes {
+  flex: 0 0 80px !important;
 }
 
 #div_barra .mat-raised-button {

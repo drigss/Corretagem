@@ -5,7 +5,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import swal from 'sweetalert2';
 import { CadastroProventosComponent } from 'src/app/forms/cadastro-proventos/cadastro-proventos.component';
-
+import { Observable } from 'rxjs';
+import { Proventos } from 'src/app/models/proventos';
 
 @Component({
   selector: 'app-proventos',
@@ -20,15 +21,21 @@ export class ProventosComponent implements OnInit {
   dataLength: number;
   Carregando: Boolean = false;
   Pesquisa: any = {};
+  proventos$: Observable<Proventos[]>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private firestore: AngularFirestore, private dialog: MatDialog) { }
+  constructor(
+    private firestore: AngularFirestore,
+    private dialog: MatDialog,
+    private db: AngularFirestore) { }
 
   ngOnInit() {
     this.Pesquisa.descricao = '';
     this.Carregar(null);
+    this.proventos$ = this.db.collection<Proventos>('/proventos').valueChanges();
+
   }
 
   Carregar(event: PageEvent): void {

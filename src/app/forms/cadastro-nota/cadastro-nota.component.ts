@@ -58,7 +58,7 @@ export class CadastroNotaComponent implements OnInit {
 
   Salvar(): void {
     if (this.Form.valid) {
-      const { corretora, numero_nota, data, total_compras, total_vendas, liquidacao, registro, emolumento, ir } = this.dados2;
+      const { corretora, numero_nota, data, total_compras, total_vendas, total_liquido, liquidacao, registro, emolumento, ir } = this.dados2;
       if (this.dados.id === 0) {
         this.firestore
           .collection(`notas`)
@@ -69,6 +69,7 @@ export class CadastroNotaComponent implements OnInit {
             data_nota: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('MM/DD/YYYY'))),
             total_compras,
             total_vendas,
+            total_liquido: (total_compras - total_vendas),
             liquidacao,
             registro,
             emolumento,

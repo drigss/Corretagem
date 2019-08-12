@@ -1,5 +1,9 @@
+h1{
+  margin-left: 15px;
+}
+
 .table-header {
-  background-color: #616161;
+  background-color: #3700b3;
   color: white;
   padding: 0 5px;
 }
@@ -9,7 +13,7 @@
 }
 
 .table-component-holder {
-  border: 1px solid #616161;
+ // border: 1px solid #616161;
   background-color: white;
 }
 
@@ -34,19 +38,34 @@
   background: #efefef;
 }
 
-.example-chip-list {
-  width: 93%;
+.mat-column-select {
+  flex: 0 0 40px !important;
 }
 
-.Carregando {
-  margin: 0 auto;
+.mat-column-operacoes {
+  flex: 0 0 80px !important;
 }
 
-.mat-spinner circle {
-  stroke: #fff;
+#div_barra .mat-raised-button {
+  margin-left: 15px;
 }
 
-.mat-raised-button {
-  line-height: 36px;
-  height: 36px;
+.page-loader-wrapper {
+  z-index: 99999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.page-loader-wrapper .loader {
+  position: relative;
+  top: calc(50% - 30px);
+}
+::ng-deep .mat-spinner circle {
+  stroke: #616161 !important;
 }

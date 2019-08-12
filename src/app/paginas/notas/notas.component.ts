@@ -14,7 +14,7 @@ import { Notas } from 'src/app/models/notas';
   styleUrls: ['./notas.component.scss']
 })
 export class NotasComponent implements OnInit {
-  public displayedColumns = ['select', 'operacoes', 'corretora_desc', 'numero_nota', 'data_nota'];
+  public displayedColumns = ['select', 'operacoes', 'corretora_desc', 'numero_nota', 'data_nota', 'total_liquido'];
   public dataSource = [];
   selection = new SelectionModel<string>(true, []);
   dataLength: number;

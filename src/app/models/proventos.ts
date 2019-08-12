@@ -5,4 +5,5 @@ export interface Proventos {
   data_provento: string;
   operacao: string;
   tipo: string;
+  valor: number;
 }
