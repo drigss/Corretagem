@@ -16,16 +16,15 @@
         </button>
       </div>
     </mat-toolbar>
+
     <div>
-      <mat-card>Simple card
-        <ul>
-          <li *ngFor="let provento of proventos$ | async">{{ provento.valor }}
-            {{a}}
-          </li>
-        </ul>
-        <!-- <li *ngFor="let task of tasks$ | async">{{ task.uid }}</li>   -->
+      <mat-card>
+        <h3>
+          Total de proventos: {{total}}
+        </h3>
       </mat-card>
     </div>
+
     <div class="table-container">
       <mat-table #table [dataSource]="dataSource">
         <!-- Checkbox Column -->

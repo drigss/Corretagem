@@ -22,6 +22,7 @@ export class ProventosComponent implements OnInit {
   Carregando: Boolean = false;
   Pesquisa: any = {};
   proventos$: Observable<Proventos[]>;
+  total: number = 0;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -35,7 +36,6 @@ export class ProventosComponent implements OnInit {
     this.Pesquisa.descricao = '';
     this.Carregar(null);
     this.proventos$ = this.db.collection<Proventos>('/proventos').valueChanges();
-
   }
 
   Carregar(event: PageEvent): void {
@@ -47,6 +47,17 @@ export class ProventosComponent implements OnInit {
       .subscribe(data => {
         this.dataSource = data;
         this.Carregando = false;
+
+        //Soma dos valores
+        console.log(this.dataSource);
+
+        //this.total = 0;
+        // for (var i = 0; i < this.dataSource.length; i++) {
+        //   this.total += this.dataSource[i].valor;
+        // }
+        // this.total = parseFloat(this.total.toFixed(2));
+
+        this.total = this.dataSource.reduce((sum, item) => sum + item.valor,0).toFixed(2);
       });
   }
 
