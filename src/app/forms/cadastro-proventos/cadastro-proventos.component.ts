@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import swal from 'sweetalert2';
@@ -63,11 +62,11 @@ export class CadastroProventosComponent implements OnInit {
           .collection(`proventos`)
           .add({
           nome,
-          data_provento: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('dd/MM/yyyy'))),
+          data_provento: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('MM/DD/YYYY'))),
           tipo,
           papel,
-          valor,
-         // created_time: firebase.firestore.FieldValue.serverTimestamp()
+          valor
+          //created_time: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then(() => {
             swal
