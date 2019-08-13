@@ -21,7 +21,7 @@
             required
             appMaskDate
           />
-          <mat-datepicker-toggle matSuffix [for]="dp_data_provento" disabled></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="dp_data_provento"></mat-datepicker-toggle>
           <mat-datepicker #dp_data_provento></mat-datepicker>
           <mat-error>
             <app-error-msg [control]="Form.get('data_provento')" label="Data"></app-error-msg>

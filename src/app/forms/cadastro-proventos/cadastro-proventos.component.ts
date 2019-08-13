@@ -42,7 +42,7 @@ export class CadastroProventosComponent implements OnInit {
 
   ngOnInit() {
     if (this.dados.id === 0) this.dados2 = {};
-    else this.dados2 = { data: moment(this.dados.data_nota.seconds * 1000).format('YYYY-MM-DD'), ...this.dados };
+    else this.dados2 = { data: moment(this.dados.data_provento.seconds * 1000).format('YYYY-MM-DD'), ...this.dados };
   }
 
   CarregarProventos(): void {
@@ -63,7 +63,7 @@ export class CadastroProventosComponent implements OnInit {
           .collection(`proventos`)
           .add({
           nome,
-          data_provento: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('MM/DD/YYYY'))),
+          data_provento: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('dd/MM/yyyy'))),
           tipo,
           papel,
           valor,
