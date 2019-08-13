@@ -24,7 +24,7 @@ export class NotasComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private firestore: AngularFirestore, private dialog: MatDialog) {}
+  constructor(private firestore: AngularFirestore, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.Pesquisa.descricao = '';
@@ -74,7 +74,7 @@ export class NotasComponent implements OnInit {
       data: item
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
   NovoRegistro(): void {

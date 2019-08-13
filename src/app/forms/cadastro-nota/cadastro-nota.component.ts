@@ -97,9 +97,23 @@ export class CadastroNotaComponent implements OnInit {
             });
           });
       } else {
+        const { corretora, numero_nota, data, total_compras, total_vendas, total_liquido, liquidacao, registro, emolumento, ir } = this.dados2;
+
         this.firestore
           .doc(`notas/${this.dados.id}`)
-          .update(this.dados2)
+          .update({
+            corretora,
+            corretora_ref: this.firestore.doc('corretoras/' + corretora).ref,
+            numero_nota,
+            data_nota: firebase.firestore.Timestamp.fromDate(new Date(moment(data).format('MM/DD/YYYY'))),
+            total_compras,
+            total_vendas,
+            total_liquido: (total_compras - total_vendas),
+            liquidacao,
+            registro,
+            emolumento,
+            ir,
+          })
           .then(() => {
             swal
               .fire({
