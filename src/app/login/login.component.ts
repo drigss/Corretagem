@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     public router: Router,
     public ngZone: NgZone
   ) {
-    this.Carregando = false;
     this.Form = this.formBuilder.group({
       email: [null, Validators.required],
       senha: [null, Validators.required]
@@ -44,6 +43,7 @@ export class LoginComponent implements OnInit {
 
   AcessarSistema(): void {
     if (this.Form.valid) {
+      this.Carregando = true;
       this.firestore
         .collection(`usuarios`, ref =>
           ref
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
         .snapshotChanges()
         .pipe(map(changes => changes.map(c => ({ id: c.payload.doc.id, ...c.payload.doc.data() }))))
         .subscribe(data => {
-          this.Carregando = false;
           if (data.length > 0) {
             localStorage.setItem('@Corretagem', JSON.stringify(data[0]));
             this.router.navigate(['/principal']);

@@ -21,7 +21,19 @@ export class OperacoesNotaComponent implements OnInit {
 
   public operacoes: Array<Object> = [{ id: 'C', descricao: 'Compra' }, { id: 'V', descricao: 'Venda' }];
   public papeis: Array<Object> = [{ id: 1, descricao: 'Ação' }, { id: 2, descricao: 'ETF' }];
-  public displayedColumns = ['operacao', 'ticker', 'papel', 'quantidade', 'preco_unitario', 'preco_total', 'liquido', 'registro', 'emolumento', 'ir', 'operacoes'];
+  public displayedColumns = [
+    'operacao',
+    'ticker',
+    'papel',
+    'quantidade',
+    'preco_unitario',
+    'preco_total',
+    'liquido',
+    'registro',
+    'emolumento',
+    'ir',
+    'operacoes'
+  ];
   public dataSource = [];
 
   constructor(
@@ -48,9 +60,8 @@ export class OperacoesNotaComponent implements OnInit {
     if (this.Form.valid) {
       if (this.dados2.id === undefined) {
         this.firestore
-          .collection(`notas_operacoes`)
+          .collection(`notas/${this.dados.id}/operacoes`)
           .add({
-            nota: this.dados.id,
             preco_total: (this.dados2.quantidade * this.dados2.preco_unitario).toFixed(2),
             created_time: firebase.firestore.FieldValue.serverTimestamp(),
             ...this.dados2
@@ -66,18 +77,6 @@ export class OperacoesNotaComponent implements OnInit {
               text: 'Ops... algo de errado aconteceu, tente novamente ou entre em contato com nosso suporte!'
             });
           });
-      } else {
-        this.firestore
-          .doc(`notas_operacoes/${this.dados2.id}`)
-          .update({ nota: this.dados.id, ...this.dados2 })
-          .then(() => {})
-          .catch(() => {
-            swal.fire({
-              title: 'Atenção!',
-              type: 'warning',
-              text: 'Ops... algo de errado aconteceu, tente novamente ou entre em contato com nosso suporte!'
-            });
-          });
       }
     }
   }
@@ -85,49 +84,50 @@ export class OperacoesNotaComponent implements OnInit {
   CarregarOperacoes(): void {
     this.Carregando = true;
     this.firestore
-      .collection(`notas_operacoes`, ref => ref.where('nota', '==', this.dados.id))
+      .collection(`notas/${this.dados.id}/operacoes`)
       .snapshotChanges()
       .pipe(map(changes => changes.map(c => ({ id: c.payload.doc.id, ...(c.payload.doc.data() as NotasOperacoes) }))))
       .subscribe(data => {
         if (data.length > 0) {
           if (data.length > 1) {
             let auxTotal = 0;
-
             data.forEach(obj => {
               auxTotal += obj.quantidade * obj.preco_unitario;
             });
-
             data.forEach(obj => {
               const liq = ((this.dados.liquidacao / auxTotal) * obj.preco_total).toFixed(4);
-              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ liquido: liq });
-            });
-
-            //Registro, emolumento, ir
-            data.forEach(obj => {
               const reg = ((this.dados.registro / auxTotal) * obj.preco_total).toFixed(4);
-              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ registro: reg });
-            });
-
-            data.forEach(obj => {
               const emol = ((this.dados.emolumento / auxTotal) * obj.preco_total).toFixed(4);
-              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ emolumento: emol });
-            });
-
-            data.forEach(obj => {
               const irrf = ((this.dados.ir / auxTotal) * obj.preco_total).toFixed(4);
-              this.firestore.doc(`notas_operacoes/${obj.id}`).update({ ir: irrf });
+              this.firestore
+                .doc(`notas/${this.dados.id}/operacoes/${obj.id}`)
+                .update({ liquido: liq, registro: reg, emolumento: emol, ir: irrf });
             });
-
+            //Registro, emolumento, ir
+            // data.forEach(obj => {
+            //   const reg = ((this.dados.registro / auxTotal) * obj.preco_total).toFixed(4);
+            //   this.firestore.doc(`notas/${obj.id}`).update({ registro: reg });
+            // });
+            // data.forEach(obj => {
+            //   const emol = ((this.dados.emolumento / auxTotal) * obj.preco_total).toFixed(4);
+            //   this.firestore.doc(`notas/${obj.id}`).update({ emolumento: emol });
+            // });
+            // data.forEach(obj => {
+            //   const irrf = ((this.dados.ir / auxTotal) * obj.preco_total).toFixed(4);
+            //   this.firestore.doc(`notas/${obj.id}`).update({ ir: irrf });
+            // });
           } else {
-            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ liquido: this.dados.liquidacao });
+            this.firestore.doc(`notas/${this.dados.id}/operacoes/${data[0].id}`).update({
+              liquido: this.dados.liquidacao,
+              registro: this.dados.registro,
+              emolumento: this.dados.emolumento,
+              ir: this.dados.ir
+            });
             //teste
-            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ registro: this.dados.registro });
-            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ emolumento: this.dados.emolumento });
-            this.firestore.doc(`notas_operacoes/${data[0].id}`).update({ ir: this.dados.ir });
+            // this.firestore.doc(`notas/${data[0].id}`).update({ registro: this.dados.registro });
+            // this.firestore.doc(`notas/${data[0].id}`).update({ emolumento: this.dados.emolumento });
+            // this.firestore.doc(`notas/${data[0].id}`).update({ ir: this.dados.ir });
           }
-
-
-
           this.dataSource = data;
         } else {
           this.dataSource = [];
@@ -145,7 +145,7 @@ export class OperacoesNotaComponent implements OnInit {
 
   Excluir(item): void {
     this.firestore
-      .doc(`notas_operacoes/` + item.id)
+      .doc(`notas/${this.dados.id}/operacoes/` + item.id)
       .delete()
       .then(() => this.CarregarOperacoes());
   }

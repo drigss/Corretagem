@@ -24,7 +24,7 @@ export class NotasComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private firestore: AngularFirestore, private dialog: MatDialog) { }
+  constructor(private firestore: AngularFirestore, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.Pesquisa.descricao = '';
@@ -74,7 +74,7 @@ export class NotasComponent implements OnInit {
       data: item
     });
 
-    dialogRef.afterClosed().subscribe(result => { });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   NovoRegistro(): void {
@@ -113,12 +113,11 @@ export class NotasComponent implements OnInit {
           confirmButtonText: 'Sim',
           cancelButtonText: 'Não'
         })
-        .then(result => { // Deletar notas
+        .then(result => {
+          // Deletar notas
           if (result.value) {
             this.selection.selected.forEach(item => {
               this.firestore.doc(`notas/` + item).delete();
-
-              this.firestore.doc(`notas_operacoes/` + item).delete(); // inserido isso
             });
             this.Carregar(null);
           }

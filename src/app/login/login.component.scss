@@ -9,3 +9,14 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+.Carregando {
+  margin: 0 auto;
+}
+.mat-raised-button {
+  line-height: 36px;
+  height: 36px;
+}
+.mat-spinner circle {
+  stroke: #fff !important;
+}
