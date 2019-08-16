@@ -21,19 +21,13 @@
         <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
           <mat-header-cell *matHeaderCellDef>
-            <mat-checkbox
-              (change)="$event ? masterToggle() : null"
-              [checked]="isAllSelected()"
-              [indeterminate]="selection.hasValue() && !isAllSelected()"
-            >
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
             </mat-checkbox>
           </mat-header-cell>
           <mat-cell *matCellDef="let row">
-            <mat-checkbox
-              (click)="$event.stopPropagation()"
-              (change)="$event ? selection.toggle(row.id) : null"
-              [checked]="selection.isSelected(row.id)"
-            >
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.id) : null"
+              [checked]="selection.isSelected(row.id)">
             </mat-checkbox>
           </mat-cell>
         </ng-container>
@@ -65,30 +59,27 @@
           <mat-cell *matCellDef="let row"> {{ row.data_nota.seconds * 1000 | date: 'dd/MM/yyyy' }} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="total_liquido">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>
-              Total Líquido
-            </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.total_liquido }}</mat-cell>
-          </ng-container>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Total Líquido
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.total_liquido }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nota_validada">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Nota Validada?
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">[ X ]</mat-cell>
+        </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row
-          *matRowDef="let row; columns: displayedColumns"
-          [class.example-selected-row]="selection.isSelected(row.id)"
-          (click)="EditarRegistro(row)"
-          class="example-element-row"
-        ></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"
+          [class.example-selected-row]="selection.isSelected(row.id)" (click)="EditarRegistro(row)"
+          class="example-element-row"></mat-row>
       </mat-table>
       <div class="no-results" [style.display]="dataSource?.length == 0 ? '' : 'none'">
         Nenhuma nota foi encontrado!
       </div>
-      <mat-paginator
-        [length]="dataLength"
-        [pageIndex]="0"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        [showFirstLastButtons]="true"
-        (page)="onPaginateChange($event)"
-      >
+      <mat-paginator [length]="dataLength" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
+        [showFirstLastButtons]="true" (page)="onPaginateChange($event)">
       </mat-paginator>
     </div>
   </div>

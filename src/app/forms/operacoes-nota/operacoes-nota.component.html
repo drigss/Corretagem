@@ -25,7 +25,7 @@
       <div fxFlex="33">
         <mat-form-field class="full-width">
           <mat-select placeholder="Papel" formControlName="papel" [(ngModel)]="dados2.papel">
-            <mat-option *ngFor="let papel of papeis" [value]="papel.id">
+            <mat-option *ngFor="let papel of papeis" [value]="papel.descricao">
               {{ papel.descricao }}
             </mat-option>
           </mat-select>
@@ -38,7 +38,8 @@
     <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
       <div fxFlex="33">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Quantidade" formControlName="quantidade" [(ngModel)]="dados2.quantidade" />
+          <input type="number" matInput placeholder="Quantidade" formControlName="quantidade"
+            [(ngModel)]="dados2.quantidade" />
           <mat-error>
             <app-error-msg [control]="Form.get('quantidade')" label="Quantidade"></app-error-msg>
           </mat-error>
@@ -122,8 +123,8 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{ row.ir }} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="operacoes">
-        <mat-header-cell *matHeaderCellDef>Operações</mat-header-cell>
+      <ng-container matColumnDef="excluir">
+        <mat-header-cell *matHeaderCellDef>Excluir</mat-header-cell>
         <mat-cell *matCellDef="let row">
           <button type="button" mat-icon-button title="Excluir" (click)="$event.stopPropagation(); Excluir(row)">
             <mat-icon>delete</mat-icon>

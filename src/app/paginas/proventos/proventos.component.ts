@@ -50,7 +50,7 @@ export class ProventosComponent implements OnInit {
         this.Carregando = false;
 
         //Soma dos valores
-       // console.log(this.dataSource);
+        // console.log(this.dataSource);
 
         //this.total = 0;
         // for (var i = 0; i < this.dataSource.length; i++) {
@@ -60,9 +60,9 @@ export class ProventosComponent implements OnInit {
 
         //this.dataSource[2].valor
 
-        this.total = this.dataSource.reduce((sum, item) => sum + item.valor,0).toFixed(2);
+        this.total = this.dataSource.reduce((sum, item) => sum + item.valor, 0).toFixed(2);
 
-        this.totalX = this.dataSource[0].valor +  this.dataSource[0].valor;
+        // this.totalX = this.dataSource[0].valor +  this.dataSource[0].valor;
 
       });
   }

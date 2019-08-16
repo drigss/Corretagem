@@ -14,17 +14,18 @@ import { Notas } from 'src/app/models/notas';
   styleUrls: ['./notas.component.scss']
 })
 export class NotasComponent implements OnInit {
-  public displayedColumns = ['select', 'operacoes', 'corretora_desc', 'numero_nota', 'data_nota', 'total_liquido'];
+  public displayedColumns = ['select', 'operacoes', 'corretora_desc', 'numero_nota', 'data_nota', 'total_liquido', 'nota_validada'];
   public dataSource = [];
   selection = new SelectionModel<string>(true, []);
   dataLength: number;
   Carregando: Boolean = false;
   Pesquisa: any = {};
+  title: 'Nota Validada';
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private firestore: AngularFirestore, private dialog: MatDialog) {}
+  constructor(private firestore: AngularFirestore, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.Pesquisa.descricao = '';
@@ -68,13 +69,13 @@ export class NotasComponent implements OnInit {
 
   Operacoes(item): void {
     const dialogRef = this.dialog.open(OperacoesNotaComponent, {
-      width: '900px',
+      width: '1100px',
       hasBackdrop: true,
       disableClose: true,
       data: item
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
   NovoRegistro(): void {

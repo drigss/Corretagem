@@ -20,7 +20,7 @@ export class OperacoesNotaComponent implements OnInit {
   Carregando: Boolean = false;
 
   public operacoes: Array<Object> = [{ id: 'C', descricao: 'Compra' }, { id: 'V', descricao: 'Venda' }];
-  public papeis: Array<Object> = [{ id: 1, descricao: 'Ação' }, { id: 2, descricao: 'ETF' }];
+  public papeis: Array<Object> = [{ descricao: 'Ação' }, { descricao: 'ETF' }, { descricao: 'Fundo Imobiliário' }, { descricao: 'Opção' }, { descricao: 'Mini-Índice' }, { descricao: 'Mini-Dólar' }];
   public displayedColumns = [
     'operacao',
     'ticker',
@@ -32,7 +32,7 @@ export class OperacoesNotaComponent implements OnInit {
     'registro',
     'emolumento',
     'ir',
-    'operacoes'
+    'excluir'
   ];
   public dataSource = [];
 
@@ -63,7 +63,7 @@ export class OperacoesNotaComponent implements OnInit {
           .collection(`notas/${this.dados.id}/operacoes`)
           .add({
             preco_total: (this.dados2.quantidade * this.dados2.preco_unitario).toFixed(2),
-            created_time: firebase.firestore.FieldValue.serverTimestamp(),
+            //created_time: firebase.firestore.FieldValue.serverTimestamp(),
             ...this.dados2
           })
           .then(() => {
