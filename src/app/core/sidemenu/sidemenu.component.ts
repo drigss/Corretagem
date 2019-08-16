@@ -17,7 +17,7 @@ export class SidemenuComponent implements OnInit {
       {
         name: 'Dashboard',
         icon: 'dashboard',
-        link: '/carteira',
+        link: '/principal',
         open: false
       },
       {
