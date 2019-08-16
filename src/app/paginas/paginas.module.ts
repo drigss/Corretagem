@@ -60,6 +60,8 @@ import { CorretorasComponent } from './corretoras/corretoras.component';
 import { NotasComponent } from './notas/notas.component';
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { ProventosComponent } from './proventos/proventos.component';
+import { CarteiraComponent } from './carteira/carteira.component';
+import { ChartsModule } from 'ng2-charts';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -118,7 +120,8 @@ export const MY_FORMATS = {
     ReactiveFormsModule,
     MatTableExporterModule,
     HttpClientModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    ChartsModule
   ],
   declarations: [
     LineGraphComponent,
@@ -130,7 +133,8 @@ export const MY_FORMATS = {
     CorretorasComponent,
     NotasComponent,
     MovimentacaoComponent,
-    ProventosComponent
+    ProventosComponent,
+    CarteiraComponent
   ],
   exports: [LineGraphComponent, RoundProgressbarComponent],
   providers: [
@@ -149,4 +153,4 @@ export const MY_FORMATS = {
   ],
   entryComponents: []
 })
-export class PaginasModule {}
+export class PaginasModule { }

@@ -10,14 +10,14 @@ export class SidemenuComponent implements OnInit {
 
   public menus = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.menus = [
       {
         name: 'Dashboard',
         icon: 'dashboard',
-        link: '/principal',
+        link: '/carteira',
         open: false
       },
       {
