@@ -11,6 +11,13 @@
   </h1>
 </div>
 
+<mat-card style="width: 28rem; margin: 30px 0 0 25px">
+  <div style="display: block" fxFlex="100">
+    <canvas baseChart [data]="ChartData" [labels]="ChartLabels" [chartType]="ChartType">
+    </canvas>
+  </div>
+</mat-card>
+
 
 <!-- 
 <div class="card" style="width: 28rem;">

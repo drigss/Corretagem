@@ -118,7 +118,8 @@ export class NotasComponent implements OnInit {
           // Deletar notas
           if (result.value) {
             this.selection.selected.forEach(item => {
-              this.firestore.doc(`notas/` + item).delete();
+              this.firestore.doc(item).delete();
+
             });
             this.Carregar(null);
           }
